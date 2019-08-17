@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<header class="main-header">
+    <div class="page-title">Django powered blog for portfolio purposes.</div>
+</header>
+{% for post in posts %}
+    <div class="post-container">
+    <h1><a href="#">{{ post.post_title }}</a></h1>
+    <p><i class="fas fa-calendar-alt"></i> {{ post.post_date_posted|date:"j F, Y" }}</p>
+    <p>{{ post.post_content }}</p>
+    <p>{{ post.post_author }}</p>
+    </div>
+{% endfor %}
+
+
+{% endblock %}

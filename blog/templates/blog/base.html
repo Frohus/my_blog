@@ -1,0 +1,38 @@
+{% load static %}
+{% load bulma_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+{#    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">#}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css"
+          integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
+
+    <title>Lukasz Kozera - Blog</title>
+</head>
+<body>
+<div class="navbar">
+    <ul class="left">
+        <li class="blog-title">My Personal Blog</li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><i class="fab fa-github"></i></li>
+        <li><i class="far fa-envelope"></i></li>
+        <li><i class="fab fa-linkedin"></i></li>
+    </ul>
+
+    <ul class="right">
+        <li>
+            <a class="new-post" href="#">New Post</a>
+        </li>
+    </ul>
+</div>
+
+{% block content %}{% endblock %}
+</body>
+{#TODO: move js out#}
+
+</html>
