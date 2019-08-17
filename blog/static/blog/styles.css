@@ -1,29 +1,31 @@
 html {
     font-family: 'Roboto', sans-serif;
-    --font-color: white;
+    --font-color: black;
     --debug-borders: solid white 2px;
 }
 
 body {
-    background-color: hsla(157, 72%, 17%, 1);
+    background-color: white;
     font-family: 'Roboto', sans-serif;
-    color: white;
+    color: black;
     width: 1024px;
     margin: auto;
 }
 
 .navbar {
-    background-color: hsla(157, 100%, 28%, 1);
+    background-color: hsla(157, 72%, 17%, 1);;
     width: 100%;
     height: 40px;
-    margin: 0;
-    padding: 0;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
     font-size: 20px;
+    color: white;
+    overflow: hidden;
 }
+
 
 ul {
     list-style: none;
@@ -60,31 +62,26 @@ li {
 .right {
 }
 
-.main-container {
-    margin: auto;
-    border: solid white;
-    height: 400px;
-    background-color: hsla(157, 100%, 20%, 1);
-}
-
-.new-post, .log-in {
+.new-post {
     border: solid transparent 2px;
     border-radius: 10px;
     background-color: white;
     color: hsla(157, 100%, 20%, 1);
     font-size: 15px;
     padding: 5px;
+    margin: 10px;
 }
 
 a {
     text-decoration: none;
-    color: var(--font-color)
+    color: white;
 }
 
 .post-container {
-    border: var(--debug-borders);
+    border: 1px solid hsla(157, 72%, 17%, 1);
+    border-radius: 5px;
     padding: 10px;
-    background-color: hsla(157, 72%, 25%, 1);
+    background-color: white;
     margin: 0 0 50px;
 }
 
@@ -93,10 +90,49 @@ a {
     padding: 125px 25px;
     box-sizing: border-box;
     font-size: 30px;
+    color: hsla(157, 72%, 17%, 1);
 }
 
 .blog-title {
     font-weight: bold;
     font-size: 25px;
     margin-right: 30px;
+}
+
+.post-title {
+    color: black;
+}
+
+h1::first-letter {
+    color: hsla(157, 72%, 17%, 1);
+}
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 5px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
+
+.post-detail {
+    background-color: white;
 }

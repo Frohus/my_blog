@@ -12,27 +12,32 @@
           integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
 
     <title>Lukasz Kozera - Blog</title>
+    {{ form.media }}
+    <link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/atom-one-light.min.css">
 </head>
 <body>
-<div class="navbar">
+<header class="navbar">
     <ul class="left">
         <li class="blog-title">My Personal Blog</li>
-        <li><a href="#">Home</a></li>
+        <li><a href="{% url 'homepage' %}">Home</a></li>
         <li><a href="#">About</a></li>
         <li><i class="fab fa-github"></i></li>
         <li><i class="far fa-envelope"></i></li>
         <li><i class="fab fa-linkedin"></i></li>
     </ul>
-
+{% if user.is_authenticated %}
     <ul class="right">
         <li>
-            <a class="new-post" href="#">New Post</a>
+            <a class="new-post" href="{% url 'new-post' %}">New Post</a>
         </li>
     </ul>
-</div>
+{% endif %}
+</header>
 
 {% block content %}{% endblock %}
 </body>
-{#TODO: move js out#}
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </html>

@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <div class="post-detail">
+    <h1>{{ object.post_title|title }}</h1>
+    <p>{{ object.post_date_posted }}</p>
+    <p>{{ object.post_content|safe }}</p>
+    <p>{{ object.post_author }}</p>
+    {% if object.post_author == user %}
+        <a class="button-warning" href="{% url 'post-update' object.id %}">Update</a>
+        <a class="button-warning" href="{% url 'post-delete' object.id %}">Delete</a>
+    {% endif %}
+    </div>
+{% endblock %}
