@@ -8,6 +8,10 @@ body {
     background-color: white;
     font-family: 'Roboto', sans-serif;
     color: black;
+    margin: 0;
+}
+
+.main-container {
     width: 1024px;
     margin: auto;
 }
@@ -16,7 +20,6 @@ body {
     background-color: hsla(157, 72%, 17%, 1);;
     width: 100%;
     height: 40px;
-    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,12 +27,14 @@ body {
     font-size: 20px;
     color: white;
     overflow: hidden;
+    position: sticky;
+    top: 0;
 }
 
 
 ul {
     list-style: none;
-    margin: 0;
+    margin: 10px;
     padding: 0;
     overflow: hidden;
     display: flex;
@@ -53,19 +58,14 @@ ul {
 /*}*/
 
 li {
-    margin: .3em;
+    margin: .5em;
 }
 
-.left {
-}
-
-.right {
-}
 
 .new-post {
     border: solid transparent 2px;
     border-radius: 10px;
-    background-color: white;
+    background: white;
     color: hsla(157, 100%, 20%, 1);
     font-size: 15px;
     padding: 5px;
@@ -78,7 +78,7 @@ a {
 }
 
 .post-container {
-    border: 1px solid hsla(157, 72%, 17%, 1);
+    border: 3px solid hsla(157, 72%, 17%, 1);
     border-radius: 5px;
     padding: 10px;
     background-color: white;
@@ -91,6 +91,11 @@ a {
     box-sizing: border-box;
     font-size: 30px;
     color: hsla(157, 72%, 17%, 1);
+}
+
+.main-header p {
+    max-width: 70%;
+    margin: auto;
 }
 
 .blog-title {
@@ -107,32 +112,27 @@ h1::first-letter {
     color: hsla(157, 72%, 17%, 1);
 }
 
-.button-success,
-.button-error,
-.button-warning,
-.button-secondary {
+.button-success {
+    background: hsla(157, 72%, 17%, 1); /* this is a green */
     color: white;
     border-radius: 5px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     padding: 10px;
 }
 
-.button-success {
-    background: rgb(28, 184, 65); /* this is a green */
-}
-
-.button-error {
-    background: rgb(202, 60, 60); /* this is a maroon */
-}
-
-.button-warning {
-    background: rgb(223, 117, 20); /* this is an orange */
-}
-
-.button-secondary {
-    background: rgb(66, 184, 221); /* this is a light blue */
-}
-
 .post-detail {
     background-color: white;
+    margin: auto;
+    padding: 30px;
+    border: solid yellowgreen 3px;
+}
+
+.input {
+    width: 100%;
+    height: 30px;
+    font-size: 25px;
+}
+
+.input:focus {
+    outline: none;
 }
