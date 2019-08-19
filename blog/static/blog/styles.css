@@ -9,11 +9,15 @@ body {
     font-family: 'Roboto', sans-serif;
     color: black;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .main-container {
     width: 1024px;
     margin: auto;
+    flex-grow: 1;
 }
 
 .navbar {
@@ -112,8 +116,8 @@ h1::first-letter {
     color: hsla(157, 72%, 17%, 1);
 }
 
-.button-success {
-    background: hsla(157, 72%, 17%, 1); /* this is a green */
+.button {
+    background: hsla(157, 72%, 17%, 1);
     color: white;
     border-radius: 5px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
@@ -125,6 +129,7 @@ h1::first-letter {
     margin: auto;
     padding: 30px;
     border: solid yellowgreen 3px;
+    flex: 1;
 }
 
 .input {
@@ -135,4 +140,37 @@ h1::first-letter {
 
 .input:focus {
     outline: none;
+}
+
+.paginator {
+    display: flex;
+    color: black;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.paginate-button {
+    font-size: 15px;
+    color: white;
+    padding: 20px;
+    background: hsla(157, 72%, 17%, 1);
+    border: solid transparent 2px;
+    border-radius: 5px;
+}
+
+footer {
+    height: 200px;
+    background: hsla(157, 72%, 17%, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.copyright {
+    color: white;
+    font-size: 14px;
+}
+
+.label {
+    font-size: 20px;
 }

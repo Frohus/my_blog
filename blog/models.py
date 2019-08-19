@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.conf import settings
 from django.urls import reverse
 from tinymce import HTMLField
+from lxml.html.clean import Cleaner
 
 # Create your models here.
 
@@ -18,3 +19,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
+
+    def clean_body(self):
+        cleaner = Cleaner(kill_tags=['pre', 'code', 'kbd', 'samp'])
+        return cleaner.clean_html(self.post_content)

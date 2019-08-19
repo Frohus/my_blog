@@ -6,8 +6,8 @@
     <p>{{ object.post_content|safe }}</p>
     <p>{{ object.post_author }}</p>
     {% if object.post_author == user %}
-        <a class="button-success" href="{% url 'post-update' object.id %}">Update</a>
-        <a class="button-success" href="{% url 'post-delete' object.id %}">Delete</a>
+        <a class="button" href="{% url 'post-update' object.id %}">Update</a>
+        <a class="button" href="{% url 'post-delete' object.id %}">Delete</a>
     {% endif %}
     </div>
 {% endblock %}

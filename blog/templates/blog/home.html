@@ -9,9 +9,20 @@
     <div class="post-container">
     <h1><a class="post-title" href="{% url 'post-detail' post.id %}">{{ post.post_title|title }}</a></h1>
     <p><i class="fas fa-calendar-alt"></i> {{ post.post_date_posted|date:"j F, Y" }}</p>
-    <p>{{ post.post_content|safe|truncatechars_html:200 }}</p>
+    <p>{{ post.post_content|safe }}</p>
     <p>{{ post.post_author }}</p>
     </div>
 {% endfor %}
+{% if is_paginated %}
+    <div class="paginator">
+        {% if page_obj.has_previous %}
+            <a class="paginate-button" href="?page={{ page_obj.previous_page_number }}">Newer posts</a>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+            <a class="paginate-button" href="?page={{ page_obj.next_page_number }}">Older posts</a>
+        {% endif %}
+    </div>
+{% endif %}
 
 {% endblock %}
