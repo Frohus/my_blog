@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
     font-family: 'Roboto', sans-serif;
     --font-color: black;
@@ -68,13 +72,13 @@ li {
 
 
 .new-post {
-    border: solid transparent 2px;
+    border: solid white 2px;
     border-radius: 20px;
-    background: white;
-    color: hsla(157, 100%, 20%, 1);
+    color: white;
     font-size: 15px;
     padding: 5px;
     margin: 10px;
+    width: 60px;
 }
 
 a {
@@ -127,6 +131,7 @@ h1::first-letter {
     width: 60px;
     text-align: center;
 }
+
 
 .post-detail {
     background-color: white;

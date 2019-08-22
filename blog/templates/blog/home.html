@@ -9,7 +9,7 @@
     <div class="post-container">
     <h1><a class="post-title" href="{% url 'post-detail' post.id %}">{{ post.post_title|title }}</a></h1>
     <p><i class="fas fa-calendar-alt"></i> {{ post.post_date_posted|date:"j F, Y" }}</p>
-    <p>{{ post.post_content|safe }}</p>
+    <p>{{ post.post_content|safe|truncatewords_html:130 }}</p>
     <p>{{ post.post_author }}</p>
     </div>
 {% endfor %}
