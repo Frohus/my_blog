@@ -2,6 +2,7 @@ html {
     font-family: 'Roboto', sans-serif;
     --font-color: black;
     --debug-borders: solid white 2px;
+    height: 100%;
 }
 
 body {
@@ -11,13 +12,14 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    flex: 1;
+    height: 100vh;
 }
 
 .main-container {
     width: 1024px;
     margin: auto;
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar {
@@ -31,8 +33,7 @@ body {
     font-size: 20px;
     color: white;
     overflow: hidden;
-    position: sticky;
-    top: 0;
+    position: fixed;
 }
 
 
@@ -68,7 +69,7 @@ li {
 
 .new-post {
     border: solid transparent 2px;
-    border-radius: 10px;
+    border-radius: 20px;
     background: white;
     color: hsla(157, 100%, 20%, 1);
     font-size: 15px;
@@ -87,6 +88,7 @@ a {
     padding: 10px;
     background-color: white;
     margin: 0 0 50px;
+    flex: 1 0 auto;
 }
 
 .main-header {
@@ -119,17 +121,19 @@ h1::first-letter {
 .button {
     background: hsla(157, 72%, 17%, 1);
     color: white;
-    border-radius: 5px;
+    border-radius: 20px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     padding: 10px;
+    width: 60px;
+    text-align: center;
 }
 
 .post-detail {
     background-color: white;
     margin: auto;
-    padding: 30px;
+    padding: 10px;
     border: solid yellowgreen 3px;
-    flex: 1;
+    width: 100%;
 }
 
 .input {
@@ -155,12 +159,14 @@ h1::first-letter {
     padding: 20px;
     background: hsla(157, 72%, 17%, 1);
     border: solid transparent 2px;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
-footer {
-    height: 200px;
-    background: hsla(157, 72%, 17%, 1);
+.footer {
+    background-color: hsla(157, 72%, 17%, 1);
+    flex-shrink: 0;
+    height: 150px;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -173,4 +179,14 @@ footer {
 
 .label {
     font-size: 20px;
+}
+
+.post-detail-title, #button-update, #button-delete {
+    display: inline-block;
+    margin-right: 1em;
+}
+
+.post-detail-first-line {
+    display: flex;
+    align-items: center;
 }

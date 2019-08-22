@@ -27,6 +27,7 @@
         <li><i class="far fa-envelope"></i></li>
         <li><a href="https://www.linkedin.com/in/lukasz-kozera/" target="_blank" rel="noopener">
             <i class="fab fa-linkedin"></i></a></li>
+        <li><a href="#"><i class="fas fa-search"></i></a></li>
     </ul>
 {% if user.is_authenticated %}
     <ul class="right">
@@ -39,7 +40,7 @@
 <div class="main-container">
 {% block content %}{% endblock %}
 </div>
-<footer>
+<footer class="footer">
     <div class="copyright">
         <p>© 2019 - Lukasz Kozera</p>
     </div>
