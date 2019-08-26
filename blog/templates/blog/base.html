@@ -5,17 +5,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <title>Lukasz Kozera - Blog</title>
+    {# Local CSS #}
     <link rel="stylesheet" type="text/css" href="{% static 'blog/styles.css' %}">
+    {# Google fonts #}
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    {# Font awesome #}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css"
           integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
-
-    <title>Lukasz Kozera - Blog</title>
-    {{ form.media }}
+    {# TinyMCE - HTML text editor #}
     <link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
+    {# HighlightJS #}
     <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/atom-one-light.min.css">
+    {{ form.media }}
 </head>
 <body>
 <header class="navbar">
@@ -24,7 +27,8 @@
         <li><a href="{% url 'homepage' %}">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="https://github.com/Frohus" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></li>
-        <li><i class="far fa-envelope"></i></li>
+        <li><a href="#"><i class="far fa-envelope"></i></a></li>
+        {# todo: contact form #}
         <li><a href="https://www.linkedin.com/in/lukasz-kozera/" target="_blank" rel="noopener">
             <i class="fab fa-linkedin"></i></a></li>
         <li><a href="#"><i class="fas fa-search"></i></a></li>
@@ -32,7 +36,10 @@
 {% if user.is_authenticated %}
     <ul class="right">
         <li>
-            <a class="new-post" href="{% url 'new-post' %}">New Post</a>
+            <a class="button-white" href="{% url 'admin:index' %}">Admin</a>
+        </li>
+        <li>
+            <a class="button-white" href="{% url 'new-post' %}">New Post</a>
         </li>
     </ul>
 {% endif %}

@@ -2,14 +2,33 @@
 {% block content %}
     <div class="post-detail">
         <div class="post-detail-first-line">
-        <h1 class="post-detail-title">{{ object.post_title|title }}</h1>
-        {% if object.post_author == user %}
-            <a class="button" id="button-update" href="{% url 'post-update' object.id %}">Update</a>
-            <a class="button" id="button-delete" href="{% url 'post-delete' object.id %}">Delete</a>
+        <h1 class="post-detail-title">{{ object.title|title }}</h1>
+        {% if object.author == user %}
+            <a class="button-green" id="button-update" href="{% url 'post-update' object.id %}">Update</a>
+            <a class="button-green" id="button-delete" href="{% url 'post-delete' object.id %}">Delete</a>
         {% endif %}
         </div>
-        <p>{{ object.post_date_posted }}</p>
-        <p>{{ object.post_content|safe }}</p>
-        <p>{{ object.post_author }}</p>
+        <span class="date-author">{{ object.date_posted|date:"j F, Y" }}</span>
+        <span class="date-author"> {{ object.author }}</span>
+        <p>{{ object.content|safe }}</p>
     </div>
+    <hr>
+    <a class="button-green" href="{% url 'add_comment_to_post' post.id %}">Comment</a>
+    {% for comment in post.comments.all %}
+        {% if user.is_authenticated or comment.approved_comment %}
+        <div class="comment">
+            <div class="comment-date">
+                {{ comment.created_date }}
+                {% if not comment.approved_comment %}
+                    <a class="button-green" href="{% url 'comment-remove' pk=comment.pk %}">Remove</a>
+                    <a class="button-green" href="{% url 'comment-approve' pk=comment.pk %}">Approve</a>
+                {% endif %}
+            </div>
+            <strong>{{ comment.author }}</strong>
+            <p>{{ comment.text|linebreaks }}</p>
+        </div>
+        {% endif %}
+    {% empty %}
+        <p>Nobody commented yet.</p>
+    {% endfor %}
 {% endblock %}

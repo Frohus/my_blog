@@ -7,10 +7,17 @@
 </header>
 {% for post in posts %}
     <div class="post-container">
-    <h1><a class="post-title" href="{% url 'post-detail' post.id %}">{{ post.post_title|title }}</a></h1>
-    <p><i class="fas fa-calendar-alt"></i> {{ post.post_date_posted|date:"j F, Y" }}</p>
-    <p>{{ post.post_content|safe|truncatewords_html:130 }}</p>
-    <p>{{ post.post_author }}</p>
+    <h1><a class="post-title" href="{% url 'post-detail' post.id %}">{{ post.title|title }}</a></h1>
+    <p><i class="fas fa-calendar-alt"></i> {{ post.date_posted|date:"j F, Y" }}</p>
+    <p>{{ post.clean_body|safe }}</p>
+        <hr>
+    {% if post.approved_comments.count == 0 %}
+        <p><i class="far fa-comments"></i> No comments yet</p>
+    {% elif post.approved_comments.count == 1 %}
+        <p><i class="far fa-comments"></i> {{ post.approved_comments.count }} comment</p>
+    {% else %}
+        <p><i class="far fa-comments"></i> {{ post.approved_comments.count }} comments</p>
+    {% endif %}
     </div>
 {% endfor %}
 {% if is_paginated %}
