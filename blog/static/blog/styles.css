@@ -1,5 +1,7 @@
 :root {
     --django-color: hsla(157, 72%, 17%, 1);
+    --django-color2: hsla(157, 72%, 13%, 1);
+    --django-color-hover: hsla(157, 72%, 30%, 1);
 }
 
 * {
@@ -14,7 +16,8 @@ html {
 }
 
 body {
-    background-color: white;
+    /*background-color: white;*/
+    background-color: var(--django-color);
     font-family: 'Roboto', sans-serif;
     color: black;
     margin: 0;
@@ -31,7 +34,7 @@ body {
 }
 
 .navbar {
-    background-color: var(--django-color);
+    background-color: var(--django-color2);
     width: 100%;
     height: 40px;
     display: flex;
@@ -80,7 +83,7 @@ a {
 }
 
 li a:hover {
-    color: hsla(157, 72%, 83%, 1);
+    color: var(--django-color-hover);
 }
 
 .post-container {
@@ -97,7 +100,7 @@ li a:hover {
     padding: 125px 25px;
     box-sizing: border-box;
     font-size: 30px;
-    color: var(--django-color);
+    color: white;
 }
 
 .main-header p {
@@ -113,6 +116,10 @@ li a:hover {
 
 .post-title {
     color: black;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .button-green, .button-white {
@@ -142,16 +149,16 @@ li a:hover {
 }
 
 .button-white:hover {
-    background: hsla(157, 72%, 83%, 1);
-    color: var(--django-color);
+    background: var(--django-color-hover);
+    color: white;
     border: solid transparent 2px;
 }
 
 .post-detail {
     background-color: white;
-    margin: auto;
+    margin: auto auto 10px;
     padding: 10px;
-    border: solid yellowgreen 3px;
+    /*border: solid yellowgreen 3px;*/
     width: 100%;
 }
 
@@ -174,15 +181,15 @@ li a:hover {
 
 .paginate-button {
     font-size: 15px;
-    color: white;
+    color: var(--django-color);
     padding: 20px;
-    background: var(--django-color);
+    background: white;
     border: solid transparent 2px;
     border-radius: 20px;
 }
 
 .footer {
-    background-color: var(--django-color);
+    background-color: var(--django-color2);
     flex-shrink: 0;
     height: 150px;
     padding: 20px;
@@ -217,3 +224,45 @@ li a:hover {
 }
 
 /* todo: comments styling in post-detail */
+
+.comment {
+    /*border: 2px white solid;*/
+    padding: 10px;
+    margin-top: 10px;
+    background: white;
+    color: black;
+}
+
+.no-comments {
+    color: white;
+}
+
+.post-comment, .post-form {
+    color: white;
+}
+
+.new-comment {
+    color: white;
+}
+
+.comment-author {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.comment-date {
+    color: grey;
+    font-size: 12px;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-form {
+    margin-top: 100px;
+    color: white;
+}

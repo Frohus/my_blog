@@ -1,9 +1,9 @@
 {% extends 'blog/base.html' %}
 {% load bulma_tags %}
 {% block content %}
-<form method="POST">
+<form method="POST" class="post-form">
     {% csrf_token %}
     {{ form|bulma }}
-    <button class="button-green" type="submit">Post</button>
+    <button class="button-white" type="submit">Post</button>
 </form>
 {% endblock %}

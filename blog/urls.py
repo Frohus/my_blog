@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 from .views import (PostsView,
                     PostCreateView,
                     PostDetailView,
@@ -6,7 +6,10 @@ from .views import (PostsView,
                     PostDeleteView,
                     add_comment_to_post,
                     comment_approve,
-                    comment_remove,)
+                    comment_remove,
+                    SearchView,
+                    )
+
 
 urlpatterns =[
     path('', PostsView.as_view(), name='homepage'),
@@ -17,4 +20,6 @@ urlpatterns =[
     path('post/<int:pk>/comment/', add_comment_to_post, name="add_comment_to_post"),
     path('comment/<int:pk>/approve/', comment_approve, name="comment-approve"),
     path('comment/<int:pk>/remove/', comment_remove, name="comment-remove"),
+    # re_path(r'^search/$', search, name='search'),
+    re_path(r'^search/$', SearchView.as_view(), name="search"),
 ]

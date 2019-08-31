@@ -1,10 +1,16 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic import (ListView,
+                                  CreateView,
+                                  DetailView,
+                                  UpdateView,
+                                  DeleteView)
+from django_filters.views import FilterView
 
 from .forms import CommentForm
 from .models import Post, Comment
+from .filters import PostFilter
 
 # Create your views here.
 
@@ -81,3 +87,12 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('post-detail', pk=comment.post.pk)
+
+
+# def search(request):
+#     post_filter = PostFilter(request.GET, queryset=Post.objects.all())
+#     return render(request, 'blog/post_list.html', {'filter': post_filter})
+
+class SearchView(FilterView):
+    model = Post
+    template_name = 'blog/post_list.html'

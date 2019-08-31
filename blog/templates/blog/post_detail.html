@@ -12,23 +12,22 @@
         <span class="date-author"> {{ object.author }}</span>
         <p>{{ object.content|safe }}</p>
     </div>
-    <hr>
-    <a class="button-green" href="{% url 'add_comment_to_post' post.id %}">Comment</a>
+    <a class="button-white" href="{% url 'add_comment_to_post' post.id %}">Comment</a>
     {% for comment in post.comments.all %}
         {% if user.is_authenticated or comment.approved_comment %}
         <div class="comment">
-            <div class="comment-date">
-                {{ comment.created_date }}
+            <p class="comment-author">{{ comment.author }}</p>
+            <span class="comment-date">{{ comment.created_date|date:"j F, Y G:i" }}</span>
+            <div>
                 {% if not comment.approved_comment %}
                     <a class="button-green" href="{% url 'comment-remove' pk=comment.pk %}">Remove</a>
                     <a class="button-green" href="{% url 'comment-approve' pk=comment.pk %}">Approve</a>
                 {% endif %}
             </div>
-            <strong>{{ comment.author }}</strong>
             <p>{{ comment.text|linebreaks }}</p>
         </div>
         {% endif %}
     {% empty %}
-        <p>Nobody commented yet.</p>
+        <p class="no-comments">Nobody commented yet.</p>
     {% endfor %}
 {% endblock %}
