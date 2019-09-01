@@ -6,8 +6,19 @@
         <button class="button-white" type="submit">Search</button>
     </form>
     <ul class="search-results">
-    {% for post in filter.qs %}
-        <li>{{ post.title }} - {{ post.content|safe }}</li>
+        {% for post in filter.qs %}
+            <li class="search-result">
+                <span><h2><a class="search-result-link" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2></span>
+                <span>{{ post.date_posted|date:"j F, Y" }}</span>
+                {{ post.content|safe|truncatewords_html:5 }}
+                {% if post.approved_comments.count == 0 %}
+                    <p><i class="far fa-comments"></i> No comments yet</p>
+                {% elif post.approved_comments.count == 1 %}
+                    <p><i class="far fa-comments"></i> {{ post.approved_comments.count }} comment</p>
+                {% else %}
+                    <p><i class="far fa-comments"></i> {{ post.approved_comments.count }} comments</p>
+                {% endif %}
+            </li>
     {% endfor %}
     </ul>
 {% endblock %}

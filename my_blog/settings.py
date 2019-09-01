@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'blog',
     'bulma',
     'tinymce',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

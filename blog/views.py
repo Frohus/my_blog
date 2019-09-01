@@ -89,10 +89,6 @@ def comment_remove(request, pk):
     return redirect('post-detail', pk=comment.post.pk)
 
 
-# def search(request):
-#     post_filter = PostFilter(request.GET, queryset=Post.objects.all())
-#     return render(request, 'blog/post_list.html', {'filter': post_filter})
-
-class SearchView(FilterView):
-    model = Post
-    template_name = 'blog/post_list.html'
+def search(request):
+    post_filter = PostFilter(request.GET, queryset=Post.objects.all())
+    return render(request, 'blog/post_list.html', {'filter': post_filter})
