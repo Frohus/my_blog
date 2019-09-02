@@ -10,7 +10,7 @@
         </div>
         <span class="date-author">{{ object.date_posted|date:"j F, Y" }}</span>
         <span class="date-author"> {{ object.author }}</span>
-        <p>{{ object.content|safe }}</p>
+        <p>{{ object.clean_body|safe }}</p>
     </div>
     <a class="button-white" href="{% url 'add_comment_to_post' post.id %}">Comment</a>
     {% for comment in post.comments.all %}
