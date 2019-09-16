@@ -5,7 +5,8 @@ from django.views.generic import (ListView,
                                   CreateView,
                                   DetailView,
                                   UpdateView,
-                                  DeleteView)
+                                  DeleteView,
+                                  TemplateView)
 from django_filters.views import FilterView
 
 from .forms import CommentForm
@@ -92,3 +93,7 @@ def comment_remove(request, pk):
 def search(request):
     post_filter = PostFilter(request.GET, queryset=Post.objects.all())
     return render(request, 'blog/post_list.html', {'filter': post_filter})
+
+
+class About(TemplateView):
+    template_name = "blog/about.html"

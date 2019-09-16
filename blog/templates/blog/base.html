@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lukasz Kozera - Blog</title>
+    <title>Django Blog</title>
     {# Local CSS #}
     <link rel="stylesheet" type="text/css" href="{% static 'blog/styles.css' %}">
     {# Google fonts #}
@@ -25,8 +25,7 @@
     <ul class="left">
         <li class="blog-title">Django Blog</li>
         <li><a href="{% url 'homepage' %}">Home</a></li>
-        <li><a href="#">About</a></li>
-{# todo: add about.html       #}
+        <li><a href="{% url "about" %}">About</a></li>
         <li><a href="https://github.com/Frohus" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></li>
         <li><a href="https://www.linkedin.com/in/lukasz-kozera/" target="_blank" rel="noopener">
             <i class="fab fa-linkedin"></i></a></li>

@@ -8,6 +8,7 @@ from .views import (PostsView,
                     comment_approve,
                     comment_remove,
                     search,
+                    About,
                     )
 
 
@@ -21,4 +22,5 @@ urlpatterns =[
     path('comment/<int:pk>/approve/', comment_approve, name="comment-approve"),
     path('comment/<int:pk>/remove/', comment_remove, name="comment-remove"),
     re_path(r'^search/$', search, name='search'),
+    path('about/', About.as_view(), name="about")
 ]

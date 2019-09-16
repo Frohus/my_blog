@@ -112,6 +112,7 @@ button:hover {
     width: 90px;
     text-align: center;
     font-size: 15px;
+    min-width: 80px;
 }
 
 .button-green {
